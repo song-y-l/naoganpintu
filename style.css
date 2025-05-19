@@ -1,0 +1,40 @@
+#puzzle-container {
+    width: 450px; /* 根据你的拼图图片和块数调整 */
+    height: 450px; /* 根据你的拼图图片和块数调整 */
+    border: 2px solid #333;
+    margin: 20px auto; /* 居中 */
+    position: relative; /* 用于绝对定位或相对定位拖拽中的块 */
+    display: grid;
+    /* 以下 grid 属性取决于你的拼图块数量，例如 3x3 */
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-template-rows: repeat(3, 1fr); */
+    gap: 0px; /* 块之间的间隔 */
+}
+
+.puzzle-piece {
+    /* 拼图块的基本样式 */
+    width: 150px; /* (width / number of columns) */
+    height: 150px; /* (height / number of rows) */
+    /* background-image: url('your-image.jpg'); */ /* 图片将通过JS设置背景或使用Canvas */
+    /* background-size: 450px 450px; */ /* 背景图片尺寸与容器一致 */
+    cursor: grab; /* 鼠标样式 */
+    /* 可以添加边框让块看起来更像拼图 */
+    /* border: 1px solid #eee; */
+    box-sizing: border-box; /* 让边框不影响尺寸 */
+    /* 过渡效果使拖拽更平滑（可选） */
+    transition: transform 0.1s ease-in-out;
+}
+
+/* 拖拽时的样式（可选） */
+.puzzle-piece:active {
+    cursor: grabbing;
+    z-index: 10; /* 确保拖拽的块在上面 */
+}
+
+#start-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
